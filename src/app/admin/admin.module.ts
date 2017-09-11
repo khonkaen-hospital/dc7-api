@@ -1,3 +1,5 @@
+import { HisService } from './share/his.service';
+import { NewbornService } from './share/newborn.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -11,6 +13,10 @@ import { AuthModule } from '../auth/auth.module';
 import { MainService } from './main.service';
 import { AlertService } from '../alert.service';
 import { LayoutComponent } from './layout/layout.component';
+import { NewbornComponent } from './newborn/newborn.component';
+import { SettingComponent } from './setting/setting.component';
+import { ConfigComponent } from './config/config.component';
+import { ApiComponent } from './api/api.component';
 
 @NgModule({
   imports: [
@@ -21,10 +27,12 @@ import { LayoutComponent } from './layout/layout.component';
     ClarityModule,
     AuthModule
   ],
-  declarations: [MainPageComponent, LayoutComponent],
+  declarations: [MainPageComponent, LayoutComponent, NewbornComponent, SettingComponent, ConfigComponent, ApiComponent],
   providers: [
     MainService,
-    AlertService
+    AlertService,
+    HisService,
+    NewbornService
   ]
 })
 export class AdminModule { }

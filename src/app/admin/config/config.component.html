@@ -1,0 +1,74 @@
+<clr-tabs>
+    <clr-tab>
+        <button clrTabLink>ตั้งค่าเชื่อมต่อฐานข้อมูล</button>
+        <ng-template [(clrIfActive)]="dashboardActive">
+            <clr-tab-content>
+                <form>
+                    <section class="form-block">
+                        <div class="form-group">
+                            <label for="driver">Driver</label>
+                            <div class="select">
+                                <select id="driver" name="driver" [(ngModel)]="driver">
+                                    <option *ngFor="let d of dirverItems" value="{{d.id}}"  >{{d.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="host">Host</label>
+                            <input type="text" id="host" name="host" [(ngModel)]="host" placeholder="Enter host here" size="45">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" [(ngModel)]="username" placeholder="Username" size="35">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username">Password</label>
+                            <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Password" size="35">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="databaseName">Database Name</label>
+                            <input type="text" id="databaseName" name="databaseName" [(ngModel)]="databaseName" placeholder="Enter database here" size="35">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="port">Port</label>
+                            <input type="text" id="port" name="port" [(ngModel)]="port" placeholder="Port" size="35">
+                        </div>
+
+                        <button type="submit" class="btn btn-default" (click)="testConnection()">Test Connection</button>
+                        <button type="submit" class="btn btn-primary" (click)="save()">Save</button>
+                    </section>
+                </form>
+            </clr-tab-content>
+        </ng-template>
+    </clr-tab>
+
+    <clr-tab>
+        <button clrTabLink>กำหนดคำสั่ง SQL</button>
+        <ng-template [(clrIfActive)]="managementActive">
+            <clr-tab-content>
+                <form>
+                    <section class="form-block">
+
+                        <div class="form-group">
+                            <label for="port">SQL Patient</label>
+                            <textarea rows="5" id="sqlPatient" name="sqlPatient" [(ngModel)]="sqlPatient"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="port">SQL Visit</label>
+                            <textarea rows="5" id="sqlVisit" name="sqlVisit" [(ngModel)]="sqlVisit"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" (click)="saveSql()">Save</button>
+                    </section>
+                </form>
+            </clr-tab-content>
+        </ng-template>
+    </clr-tab>
+
+</clr-tabs>

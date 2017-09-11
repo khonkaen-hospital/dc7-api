@@ -1,0 +1,21 @@
+<h3 style="margin-top:10px;">ข้อมูลผู้ป่วย</h3>
+<clr-datagrid [(clrDgLoading)]="loading">
+    <clr-dg-column [style.width.px]="100">HN</clr-dg-column>
+    <clr-dg-column [style.width.px]="100">AN</clr-dg-column>
+    <clr-dg-column>ชื่อ-นามสกุล</clr-dg-column>
+    <clr-dg-column>วันเกิด</clr-dg-column>
+    <clr-dg-column>Actions</clr-dg-column>
+
+    <clr-dg-row *clrDgItems="let p of patients" [clrDgItem]="p">
+        <clr-dg-cell>{{p.hn}}</clr-dg-cell>
+        <clr-dg-cell>{{p.an}}</clr-dg-cell>
+        <clr-dg-cell>{{p.title}}{{p.firstname}}{{p.lastname}}</clr-dg-cell>
+        <clr-dg-cell>{{p.birtdate | date}}</clr-dg-cell>
+        <clr-dg-cell></clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} patients
+        <clr-dg-pagination #pagination [clrDgPageSize]="50"></clr-dg-pagination>
+    </clr-dg-footer>
+</clr-datagrid>

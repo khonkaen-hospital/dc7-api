@@ -1,3 +1,6 @@
+import { ConfigComponent } from './config/config.component';
+import { SettingComponent } from './setting/setting.component';
+import { NewbornComponent } from './newborn/newborn.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth-guard.service';
@@ -14,6 +17,9 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'main', pathMatch: 'full' },
       { path: 'main', component: MainPageComponent },
+      { path: 'newborn', component: NewbornComponent },
+      { path: 'setting', component: SettingComponent },
+      { path: 'config', component: ConfigComponent },
       { path: '**', component: PageNotFoundComponent },
     ]
   }

@@ -40,7 +40,7 @@ export class LoginPageComponent implements OnInit {
         const fullname = `${decodedToken.firstname} ${decodedToken.lastname}`;
 
         sessionStorage.setItem('token', token);
-        sessionStorage.setItem('fullname', fullname);
+        sessionStorage.setItem('fullname', 'Admin Admin');
         // hide spinner
         this.isLogging = false;
         // redirect to admin module
