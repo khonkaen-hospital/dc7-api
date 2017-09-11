@@ -40,3 +40,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+/dc7-api-win-win32-ia32
+/dc7-api-darwin-x64

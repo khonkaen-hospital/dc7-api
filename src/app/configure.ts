@@ -8,11 +8,11 @@ export class Configure {
     return new Promise((resolve, reject) => {
       
       const config: IConnectionConfig = {
-        host: sessionStorage.getItem('host'),
-        port: +sessionStorage.getItem('port'),
-        database: sessionStorage.getItem('databaseName'),
-        user: sessionStorage.getItem('username'),
-        password: sessionStorage.getItem('password')
+        host: localStorage.getItem('host'),
+        port: +localStorage.getItem('port'),
+        database: localStorage.getItem('databaseName'),
+        user: localStorage.getItem('username'),
+        password: localStorage.getItem('password')
       };
 
       const pool = mysql.createPool(config);

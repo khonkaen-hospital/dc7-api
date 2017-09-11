@@ -36,24 +36,24 @@ export class ConfigComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.host = sessionStorage.getItem('host');
-    this.host = sessionStorage.getItem('host');
-    this.driver = sessionStorage.getItem('driver');
-    this.username = sessionStorage.getItem('username');
-    this.password = sessionStorage.getItem('password');
-    this.databaseName = sessionStorage.getItem('databaseName');
-    this.port = sessionStorage.getItem('port') || '3306';
-    this.sqlPatient = sessionStorage.getItem('sqlPatient');
-    this.sqlVisit = sessionStorage.getItem('sqlVisit');
+    this.host = localStorage.getItem('host');
+    this.host = localStorage.getItem('host');
+    this.driver = localStorage.getItem('driver');
+    this.username = localStorage.getItem('username');
+    this.password = localStorage.getItem('password');
+    this.databaseName = localStorage.getItem('databaseName');
+    this.port = localStorage.getItem('port') || '3306';
+    this.sqlPatient = localStorage.getItem('sqlPatient');
+    this.sqlVisit = localStorage.getItem('sqlVisit');
   }
 
   save(){
-    sessionStorage.setItem('driver', this.driver);
-    sessionStorage.setItem('host', this.host);
-    sessionStorage.setItem('username', this.username);
-    sessionStorage.setItem('password', this.password);
-    sessionStorage.setItem('databaseName', this.databaseName);
-    sessionStorage.setItem('port', this.port);
+    localStorage.setItem('driver', this.driver);
+    localStorage.setItem('host', this.host);
+    localStorage.setItem('username', this.username);
+    localStorage.setItem('password', this.password);
+    localStorage.setItem('databaseName', this.databaseName);
+    localStorage.setItem('port', this.port);
     this.alertService.success('บันทึกข้อมูลเสร็จเรียบร้อยแล้ว..');
     ipcRenderer.send('close-app');
   }
