@@ -1,17 +1,17 @@
 <h3 style="margin-top:10px;">ข้อมูลผู้ป่วย</h3>
-<clr-datagrid [(clrDgLoading)]="loading">
+<clr-datagrid [(clrDgLoading)]="loading" class="nb">
     <clr-dg-column [style.width.px]="100">HN</clr-dg-column>
-    <clr-dg-column [style.width.px]="100">AN</clr-dg-column>
-    <clr-dg-column>ชื่อ-นามสกุล</clr-dg-column>
-    <clr-dg-column>วันเกิด</clr-dg-column>
-    <clr-dg-column>Actions</clr-dg-column>
+    <clr-dg-column [style.width.px]="100" [clrDgField]="'an'" [(clrFilterValue)]="an">AN</clr-dg-column>
+    <clr-dg-column>ชื่อ-นามสกุล เด็ก</clr-dg-column>
+    <clr-dg-column>ชื่อ-นามสกุล มารดา</clr-dg-column>
+    <clr-dg-column [style.width.px]="100">Actions</clr-dg-column>
 
     <clr-dg-row *clrDgItems="let p of patients" [clrDgItem]="p">
         <clr-dg-cell>{{p.hn}}</clr-dg-cell>
         <clr-dg-cell>{{p.an}}</clr-dg-cell>
         <clr-dg-cell>{{p.title}}{{p.firstname}}{{p.lastname}}</clr-dg-cell>
         <clr-dg-cell>{{p.birtdate | date}}</clr-dg-cell>
-        <clr-dg-cell></clr-dg-cell>
+        <clr-dg-cell><button style="margin:0;" class="btn btn-sm">Send</button></clr-dg-cell>
     </clr-dg-row>
 
     <clr-dg-footer>
