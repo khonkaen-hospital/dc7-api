@@ -1,17 +1,23 @@
 <h3 style="margin-top:10px;">ข้อมูลผู้ป่วย</h3>
+<br>
+<div class="form-group">
+    <input type="text" id="pid" name="pid" [(ngModel)]="pid" placeholder="ค้น HN ..." size="30">
+</div>
+<!-- <button style="margin:0;" class="btn btn-sm" (click)="registerPatient()">Send</button> -->
 <clr-datagrid [(clrDgLoading)]="loading" class="nb">
-    <clr-dg-column [style.width.px]="100">HN</clr-dg-column>
-    <clr-dg-column [style.width.px]="100" [clrDgField]="'an'" [(clrFilterValue)]="an">AN</clr-dg-column>
+    <clr-dg-column [style.width.px]="200" [clrDgField]="'pid'" [(clrFilterValue)]="pid"> HN </clr-dg-column>
     <clr-dg-column>ชื่อ-นามสกุล เด็ก</clr-dg-column>
+    <clr-dg-column>เลขบัตรประชาชน เด็ก</clr-dg-column>
     <clr-dg-column>ชื่อ-นามสกุล มารดา</clr-dg-column>
-    <clr-dg-column [style.width.px]="100">Actions</clr-dg-column>
+    <clr-dg-column [style.width.px]="100"> Actions </clr-dg-column>
 
     <clr-dg-row *clrDgItems="let p of patients" [clrDgItem]="p">
-        <clr-dg-cell>{{p.hn}}</clr-dg-cell>
-        <clr-dg-cell>{{p.an}}</clr-dg-cell>
-        <clr-dg-cell>{{p.title}}{{p.firstname}}{{p.lastname}}</clr-dg-cell>
-        <clr-dg-cell>{{p.birtdate | date}}</clr-dg-cell>
-        <clr-dg-cell><button style="margin:0;" class="btn btn-sm">Send</button></clr-dg-cell>
+        <clr-dg-cell>{{p.pid}}</clr-dg-cell>
+        <clr-dg-cell>{{p.prename}}{{p.name}} {{p.lname}}</clr-dg-cell>
+        <clr-dg-cell>{{p.cid}}</clr-dg-cell>
+        <clr-dg-cell>{{p.mother_name}}</clr-dg-cell>
+
+        <clr-dg-cell><button style="margin:0;" class="btn btn-sm" (click)="registerPatient(p)">Send</button></clr-dg-cell>
     </clr-dg-row>
 
     <clr-dg-footer>

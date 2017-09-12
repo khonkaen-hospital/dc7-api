@@ -15,7 +15,7 @@ const routes: Routes = [
     component: LayoutComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '', redirectTo: 'main', pathMatch: 'full' },
+      { path: '', redirectTo: 'config', pathMatch: 'full' },
       { path: 'main', component: MainPageComponent },
       { path: 'newborn', component: NewbornComponent },
       { path: 'setting', component: SettingComponent },

@@ -1,7 +1,7 @@
 <clr-tabs>
     <clr-tab>
         <button clrTabLink>ตั้งค่าเชื่อมต่อฐานข้อมูล</button>
-        <ng-template [(clrIfActive)]="dashboardActive">
+        <ng-template [(clrIfActive)]="tab1">
             <clr-tab-content>
                 <form>
                     <section class="form-block">
@@ -48,8 +48,31 @@
     </clr-tab>
 
     <clr-tab>
+        <button clrTabLink>ตั้งค่า Newborn API</button>
+        <ng-template [(clrIfActive)]="tab2">
+            <clr-tab-content>
+                <form>
+                    <section class="form-block">
+
+                        <div class="form-group">
+                            <label for="port">Api Url</label>
+                            <input type="text" id="apiUrl" name="apiUrl" [(ngModel)]="apiUrl" placeholder="Enter api url here" size="45">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="port">Access Token</label>
+                            <input type="password" id="accessToken" name="accessToken" [(ngModel)]="accessToken" placeholder="Enter access token here" size="45">
+                        </div>
+                        <button type="submit" class="btn btn-primary" (click)="saveNewbornApi()">Save</button>
+                    </section>
+                </form>
+            </clr-tab-content>
+        </ng-template>
+    </clr-tab>
+
+    <clr-tab>
         <button clrTabLink>กำหนดคำสั่ง SQL</button>
-        <ng-template [(clrIfActive)]="managementActive">
+        <ng-template [(clrIfActive)]="tab3">
             <clr-tab-content>
                 <form>
                     <section class="form-block">

@@ -9,7 +9,7 @@ export class LoginService {
 
   doLogin(username: string, password: string) {
     return new Promise((resolve, reject) => {
-      this.http.post(`${this.url}/login`, { username: username, password: password})
+      this.http.post(`http://dc7.healtharea.net/api/auth/login`, { username: username, password: password})
         .map(res => res.json())
         .subscribe(data => {
           resolve(data);

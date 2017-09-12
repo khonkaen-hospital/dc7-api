@@ -2,7 +2,7 @@ rm -rf dc7-api-win-win32-ia32
 rm -rf dc7-api-darwin-x64
 #rm -rf dc7-api-linux-linux-x64
 
-ng build --base-href=./
+ng build -prod --base-href=./
 
 scp src/entry.js dist/
 scp src/entry.live.js dist/

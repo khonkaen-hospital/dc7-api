@@ -10,7 +10,7 @@ export class HisService {
   }
 
   getPatients(conn: IConnection){
-        let sqlPatient: string = sessionStorage.getItem('sqlPatient');
+        let sqlPatient: string = localStorage.getItem('sqlPatient');
         return new Promise((resolve, reject) => {
             conn.query(sqlPatient, [], (err, result) => {
                 if (err) reject(err);
