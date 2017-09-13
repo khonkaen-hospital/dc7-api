@@ -1,6 +1,9 @@
 rm -rf dc7-api-win-win32-ia32
+rm -rf dc7-api-win-win32-ia32.zip
 rm -rf dc7-api-win-win32-x64
+rm -rf dc7-api-win-win32-x64.zip
 rm -rf dc7-api-darwin-x64
+rm -rf dc7-api-darwin-x64.zip
 #rm -rf dc7-api-linux-linux-x64
 
 ng build --base-href=./
