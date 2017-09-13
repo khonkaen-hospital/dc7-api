@@ -38,12 +38,13 @@ export class ConfigComponent implements OnInit {
 
   public hosxpSql = `SELECT
 	p.hcode as hospcode,
+	date(now()) as register_date,
 	p.hn as pid,
 	p.pname as prename,
 	p.fname as name,
 	p.lname as lname,
 	p.cid,
-	p.birthday as birth,
+	n.born_date as 'birth',
 	p.sex,
 	p.addrpart as add_houseno,
 	p.moopart as add_village,
@@ -51,13 +52,17 @@ export class ConfigComponent implements OnInit {
 	p.addr_soi as add_soimain,
 	p.po_code as add_zip,
 	concat(p.mobile_phone_number,' ',p.hometel) as add_mobile,
-	p.chwpart as changwat,
-	p.amppart as ampur,
-	p.tmbpart as tambon,
+	p.chwpart as add_changwat,
+	p.amppart as add_ampur,
+	p.tmbpart as add_tambon,
 	concat(p.mathername,' ',p.motherlname) as mother_name,
 	p.mother_cid as mother,
 	concat(p.fatherlname,' ',p.fatherlname) as father_name,
-	p.father_cid as father
+	p.father_cid as father,
+	n.birth_weight as birth_weight,
+	n.apgar1 as apgar1,
+	n.apgar2 as apgar5,
+	n.mother_an as mother_an
 FROM
 	ipt_newborn n
 INNER JOIN ipt ON n.an = ipt.an

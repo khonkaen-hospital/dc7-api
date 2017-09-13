@@ -7,6 +7,8 @@ import { IConnection } from 'mysql';
 import { Configure } from '../../configure';
 import { Http,URLSearchParams } from '@angular/http';
 
+import * as moment from 'moment';
+
 @Component({
   selector: 'app-newborn',
   templateUrl: './newborn.component.html',
@@ -54,51 +56,22 @@ export class NewbornComponent implements OnInit {
 
 
   registerPatient(data: any){
+    this.loading = true;
     let body = new URLSearchParams();
-    //   data = {
-    //     hospcode: data.hospcode, 
-    //     cid: data.cid, 
-    //     pid:data, 
-    //     hid, 
-    //     prename, 
-    //     name, 
-    //     lname, 
-    //     hn, 
-    //     sex, 
-    //     birth, 
-    //     mstatus, 
-    //     occupation_old, 
-    //     occupation_new, 
-    //     race, 
-    //     nation, 
-    //     religion, 
-    //     education, 
-    //     fstatus, 
-    //     father, 
-    //     mother, 
-    //     couple, 
-    //     vstatus, 
-    //     movein, 
-    //     discharge, 
-    //     ddischarge, 
-    //     abogroup, 
-    //     rhgroup, 
-    //     labor, 
-    //     passport, 
-    //     typearea, 
-    //     mother_name, 
-    //     father_name
-    // };
-
-   for(let d in data){
-    body.set(d, data[d]);
-    };
-
+    for(let d in data){
+      if(data[d] instanceof Date){
+        body.set(d, moment( data[d]).format('YYYY-MM-DD'));
+      }else{
+        body.set(d, data[d]);
+      }
+     };
     this.newbornService.registerPatient(body)
     .then((token: string) => {
       this.alertService.success('ลงทะเบียนข้อมูลเสร็จเรียบร้อย');
+      this.loading = false;
     }).catch((error) => {
       this.alertService.error(JSON.stringify(error));
+      this.loading = false;
     })
   }
 
