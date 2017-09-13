@@ -122,4 +122,9 @@ INNER JOIN patient p ON ipt.hn = p.hn`;
   });
   }
 
+  loadSqlDefault()
+  {
+    this.sqlPatient = this.hosxpSql;
+  }
+
 }

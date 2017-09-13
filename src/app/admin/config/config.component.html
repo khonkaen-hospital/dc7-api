@@ -4,6 +4,7 @@
         <ng-template [(clrIfActive)]="tab1">
             <clr-tab-content>
                 <form>
+
                     <section class="form-block">
                         <div class="form-group">
                             <label for="driver">Driver</label>
@@ -75,8 +76,10 @@
         <ng-template [(clrIfActive)]="tab3">
             <clr-tab-content>
                 <form>
+                    <p style="text-align:right;">
+                        <button type="submit" class="btn btn-sm btn-default" (click)="loadSqlDefault()"> Load SQL Default</button>
+                    </p>
                     <section class="form-block">
-
                         <div class="form-group">
                             <label for="port">SQL Patient</label>
                             <textarea rows="5" id="sqlPatient" name="sqlPatient" [(ngModel)]="sqlPatient"></textarea>
